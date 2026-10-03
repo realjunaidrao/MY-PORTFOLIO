@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Junaid - Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">MJ.</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span>Muhammad Junaid</span></h1>
+            <h2>Software Engineer</h2>
+            <p>I am a final-year Software Engineering student passionate about building full-stack web applications, managing backend architectures, and creating impactful digital solutions. Always eager to learn and innovate.</p>
+            <a href="#contact" class="btn">Let's Connect</a>
+        </div>
+        <div class="hero-image">
+            <!-- Replace with your actual image path -->
+            <img src="https://via.placeholder.com/400" alt="Muhammad Junaid">
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section-padding">
+        <h2 class="section-title">My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>University</h3>
+                <h4>B.S. Software Engineering (Final Year)</h4>
+                <p>Currently completing my final year project. Focused on full-stack web development, software architecture, and database management.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Intermediate (FSc)</h3>
+                <h4>Pre-Engineering / ICS</h4>
+                <p>Built a strong foundation in mathematics, physics, and computer science principles.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Matriculation</h3>
+                <h4>Science Group</h4>
+                <p>Graduated with top marks, developing an early interest in technology and analytical problem-solving.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-alt">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="grid-container">
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>Frontend Development</h3>
+                <p>HTML5, CSS3, JavaScript</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-node-js"></i>
+                <h3>Node.js & Express</h3>
+                <p>Building scalable RESTful APIs and server-side applications.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>MongoDB</h3>
+                <p>NoSQL database design and Mongoose integration.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Django Framework</h3>
+                <p>Robust backend development and data modeling.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-server"></i>
+                <h3>VPS & Deployment</h3>
+                <p>Linux administration, Nginx, and web hosting configurations.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-unity"></i>
+                <h3>Interactive Dev</h3>
+                <p>Unity engine basics for game and simulation development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section-padding">
+        <h2 class="section-title">Certifications</h2>
+        <div class="grid-container">
+            <div class="cert-card">
+                <img src="https://via.placeholder.com/300x200" alt="HSE Engineering">
+                <h4>Intro to HSE Engineering</h4>
+                <p>Khalifa University</p>
+            </div>
+            <div class="cert-card">
+                <img src="https://via.placeholder.com/300x200" alt="Risk Management">
+                <h4>Risk Mgmt & Industrial Safety</h4>
+                <p>Khalifa University</p>
+            </div>
+            <div class="cert-card">
+                <img src="https://via.placeholder.com/300x200" alt="Certificate 3">
+                <h4>Web Development Bootcamp</h4>
+            </div>
+            <div class="cert-card">
+                <img src="https://via.placeholder.com/300x200" alt="Certificate 4">
+                <h4>Backend Architecture</h4>
+            </div>
+            <div class="cert-card">
+                <img src="https://via.placeholder.com/300x200" alt="Certificate 5">
+                <h4>Database Management</h4>
+            </div>
+            <div class="cert-card">
+                <img src="https://via.placeholder.com/300x200" alt="Certificate 6">
+                <h4>Linux Administration</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Feedback Section -->
+    <section id="contact" class="section-padding bg-alt">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><i class="fab fa-whatsapp"></i> +92 XXX XXXXXXX</p>
+                <p><i class="fas fa-envelope"></i> your.email@gmail.com</p>
+                <div class="social-links-large">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <!-- Feedback Form -->
+            <div class="feedback-form">
+                <h3>Leave a Suggestion</h3>
+                <form id="contactForm" name="contactForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="tel" name="mobile" placeholder="Mobile Number" required>
+    <input type="email" name="gmail" placeholder="Gmail Address" required>
+    <textarea name="suggestion" placeholder="Your Suggestion / Message" rows="5" required></textarea>
+    <button type="submit" class="btn" id="submitBtn">Send Message</button>
+    <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+</form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Other Info</a>
+            </div>
+            <p>&copy; 2026 Muhammad Junaid. All Rights Reserved.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="portfolio.js"></script>
+</body>
+</html>

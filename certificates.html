@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Junaid - Certificates</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Global Styles --- */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-light);
+        }
+
+        .section-padding { padding: 80px 10%; }
+        .bg-alt { background-color: #0b1120; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: var(--secondary-color); }
+
+        /* --- Header & Nav --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: rgba(15, 23, 42, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a:hover { color: var(--primary-color); }
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Certificates Page Specifics --- */
+        .cert-intro {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .cert-card h4 {
+            color: var(--text-light);
+            margin-top: 10px;
+        }
+        
+        .cert-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .interactive-cert {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-cert img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .interactive-cert:hover { transform: translateY(-10px); }
+        .interactive-cert:hover img { transform: scale(1.05); }
+
+        .click-hint {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .interactive-cert:hover .click-hint { opacity: 1; }
+
+        /* --- Image Modal (Popup) Styles --- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 100px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 8px;
+            animation: zoom 0.3s ease;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+            font-size: 1.2rem;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)} 
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        /* --- Contact & Feedback --- */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            justify-content: space-between;
+        }
+
+        .contact-info, .feedback-form {
+            flex: 1;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .contact-info p { margin: 20px 0; font-size: 1.2rem; }
+        .contact-info i { color: var(--primary-color); margin-right: 10px; }
+
+        .social-links-large { margin-top: 30px; }
+        .social-links-large a {
+            font-size: 2rem;
+            margin-right: 20px;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+        .social-links-large a:hover { color: var(--primary-color); }
+
+        .feedback-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .feedback-form input, .feedback-form textarea {
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0b1120;
+            padding: 30px 10%;
+            text-align: center;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-links a { margin: 0 10px; color: var(--text-muted); }
+        .footer-social a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: var(--text-muted);
+        }
+        .footer-social a:hover, .footer-links a:hover { color: var(--primary-color); }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .contact-container { flex-direction: column; }
+            .modal-content { width: 95%; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(15, 23, 42, 0.98);
+                padding: 20px 0;
+                text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">
+            <a href="portfolio.html">MJ.</a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#education">Education</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="certificates.html" class="active">Certificates</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Certificates Detailed Section -->
+    <section id="certificates-page" class="section-padding" style="margin-top: 80px;">
+        <h2 class="section-title">My Certifications</h2>
+        <div class="cert-intro">
+            <p>Continuous learning is a core part of my professional journey. Beyond my formal Software Engineering degree, I actively pursue specialized certifications to broaden my expertise. This includes technical web development skills as well as cross-disciplinary knowledge, such as my certifications in Introduction to HSE Engineering and Risk Management and Industrial Safety from Khalifa University, equipping me with a well-rounded perspective on software compliance and systems safety.</p>
+        </div>
+
+        <div class="grid-container">
+            <!-- Certificate 1 -->
+            <div class="cert-card interactive-cert">
+                <img src="/images/first.png" alt="Intro to HSE Engineering" class="cert-img">
+                <h4>Intro to HSE Engineering</h4>
+                <p>Khalifa University</p>
+                <span class="click-hint"><i class="fas fa-search-plus"></i> Click to view</span>
+            </div>
+            <!-- Certificate 2 -->
+            <div class="cert-card interactive-cert">
+                <img src="/images/second.jpeg" alt="Risk Management & Industrial Safety" class="cert-img">
+                <h4>Risk Mgmt & Industrial Safety</h4>
+                <p>Khalifa University</p>
+                <span class="click-hint"><i class="fas fa-search-plus"></i> Click to view</span>
+            </div>
+            <!-- Certificate 3 -->
+            <div class="cert-card interactive-cert">
+                <img src="/images/third.jpeg" alt="Environmental Science" class="cert-img">
+                <h4>Environment Protection </h4>
+                <p>Sustainable Development</p>
+                <span class="click-hint"><i class="fas fa-search-plus"></i> Click to view</span>
+            </div>
+            <!-- Certificate 4 -->
+            <div class="cert-card interactive-cert">
+                <img src="https://via.placeholder.com/600x400?text=Node.js+and+Express" alt="Node.js and Express" class="cert-img">
+                <h4>Backend APIs with Node.js</h4>
+                <p>Tech Institute</p>
+                <span class="click-hint"><i class="fas fa-search-plus"></i> Click to view</span>
+            </div>
+            <!-- Certificate 5 -->
+            <div class="cert-card interactive-cert">
+                <img src="https://via.placeholder.com/600x400?text=Database+Management" alt="MongoDB Database Management" class="cert-img">
+                <h4>Database Architecture</h4>
+                <p>Online Academy</p>
+                <span class="click-hint"><i class="fas fa-search-plus"></i> Click to view</span>
+            </div>
+            <!-- Certificate 6 -->
+            <div class="cert-card interactive-cert">
+                <img src="https://via.placeholder.com/600x400?text=VPS+Hosting" alt="VPS Hosting & Linux" class="cert-img">
+                <h4>Linux & Server Administration</h4>
+                <p>Cloud Certification</p>
+                <span class="click-hint"><i class="fas fa-search-plus"></i> Click to view</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Image Modal (Hidden by default) -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="fullImage">
+        <div id="caption"></div>
+    </div>
+
+    <!-- Contact & Feedback Section -->
+    <section id="contact" class="section-padding bg-alt">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><i class="fab fa-whatsapp"></i> +92 XXX XXXXXXX</p>
+                <p><i class="fas fa-envelope"></i> your.email@gmail.com</p>
+                <div class="social-links-large">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="feedback-form">
+                <h3>Leave a Suggestion</h3>
+                <form id="contactForm" name="contactForm">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="tel" name="mobile" placeholder="Mobile Number" required>
+                    <input type="email" name="gmail" placeholder="Gmail Address" required>
+                    <textarea name="suggestion" placeholder="Your Suggestion / Message" rows="5" required></textarea>
+                    <button type="submit" class="btn" id="submitBtn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Other Info</a>
+            </div>
+            <p>&copy; 2026 Muhammad Junaid. All Rights Reserved.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:your.email@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // --- Mobile Menu Logic ---
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // --- Image Modal Popup Logic ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("fullImage");
+        const captionText = document.getElementById("caption");
+        const closeBtn = document.getElementsByClassName("close")[0];
+        const certImages = document.querySelectorAll('.interactive-cert .cert-img');
+
+        certImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "block";
+                modalImg.src = this.src; 
+                captionText.innerHTML = this.alt; 
+            });
+        });
+
+        if(closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = "none";
+            });
+        }
+
+        if(modal) {
+            modal.addEventListener('click', function(e) {
+                if(e.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+
+        // --- Google Sheets Form Submission Logic ---
+        // REPLACE THIS URL with your actual Google Apps Script Web App URL
+        const scriptURL = 'YOUR_WEB_APP_URL_HERE';
+        const form = document.forms['contactForm'];
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault(); 
+            
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+
+            let requestBody = new FormData(form);
+
+            fetch(scriptURL, { method: 'POST', body: requestBody })
+                .then(response => {
+                    alert('Thank you! Your message has been sent successfully.');
+                    form.reset(); 
+                    submitBtn.innerHTML = originalBtnText; 
+                    submitBtn.disabled = false; 
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('Oops! Something went wrong. Please try again.');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>
